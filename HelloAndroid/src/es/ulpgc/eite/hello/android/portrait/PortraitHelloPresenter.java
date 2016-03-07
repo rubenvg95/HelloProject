@@ -8,6 +8,7 @@ import es.ulpgc.eite.hello.android.screen.hello.presenter.HelloPresenter;
  * Created by Rubén on 07/03/2016.
  */
 public class PortraitHelloPresenter  extends HelloPresenter{
+
     @Override
     public void rotateScreen() {
         debug("rotateScreen");

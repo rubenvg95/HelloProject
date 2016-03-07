@@ -58,12 +58,16 @@ public class HelloMediatorConfig extends MediatorConfig{
 
     private void setHelloTransitionCollection() {
 
-        getTransitions().add(new MediatorTransition(HelloView.class, ByeView.class, HelloMediatorCode.CLICK_HELLO));
+        getTransitions().add(new MediatorTransition(PortraitHelloView.class, ByeView.class, HelloMediatorCode.CLICK_HELLO));
+
+        getTransitions().add(new MediatorTransition(LandscapeHelloView.class, ByeView.class, HelloMediatorCode.CLICK_HELLO));
 
         getTransitions().add(new MediatorTransition(HelloView.class, CounterView.class, HelloMediatorCode.CLICK_COUNTER));
 
-        getTransitions().add(new MediatorTransition(LandscapeHelloView.class, ByeView.class, HelloMediatorCode.LANDSCAPE));
+        getTransitions().add(new MediatorTransition(LandscapeHelloView.class, PortraitHelloView.class, HelloMediatorCode.PORTRAIT));
 
-        getTransitions().add(new MediatorTransition(PortraitHelloView.class, ByeView.class, HelloMediatorCode.PORTRAIT));
+        getTransitions().add(new MediatorTransition(PortraitHelloView.class, LandscapeHelloView.class, HelloMediatorCode.LANDSCAPE));
     }
 }
+
+
