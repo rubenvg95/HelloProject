@@ -1,0 +1,17 @@
+<resources>
+
+    <string name="app_name">Hello World</string>
+
+
+    <string name="hello_message">Txt Msg</string>
+    <string name="say_hello_button">Txt Btn</string>
+
+    <string name="bye_message">Txt Msg</string>
+    <string name="say_bye_button">Txt Btn</string>
+
+    <string name="boton_contador">Txt Btn</string>
+    <string name="counter_message">Mensaje</string>
+    <string name="add_button">Añadir</string>
+
+
+</resources>
