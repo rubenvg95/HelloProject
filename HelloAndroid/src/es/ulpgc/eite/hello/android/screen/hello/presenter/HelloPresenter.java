@@ -5,7 +5,10 @@ import es.ulpgc.eite.framework.android.AndroidScreenPresenter;
 import es.ulpgc.eite.framework.core.screen.I_ScreenObserver;
 import es.ulpgc.eite.framework.core.screen.I_ScreenState;
 import es.ulpgc.eite.framework.core.screen.I_ScreenView;
+import es.ulpgc.eite.hello.android.landscape.LandscapeHelloPresenter;
+import es.ulpgc.eite.hello.android.landscape.LandscapeHelloView;
 import es.ulpgc.eite.hello.android.mediator.HelloMediatorCode;
+import es.ulpgc.eite.hello.android.portrait.PortraitHelloView;
 import es.ulpgc.eite.hello.android.screen.bye.data.ByeData;
 import es.ulpgc.eite.hello.android.screen.bye.model.I_ByeModel;
 import es.ulpgc.eite.hello.android.screen.bye.state.ByeState;
@@ -86,6 +89,10 @@ public abstract class HelloPresenter extends AndroidScreenPresenter
 
         getHelloView().setData(getHelloModel().getData());
 
+        if(getBtnClicked()){
+           getHelloView().showMessage();
+        }
+
     }
 
     @Override
@@ -141,6 +148,12 @@ public abstract class HelloPresenter extends AndroidScreenPresenter
         if(view.equals(ByeView.class) && code == HelloMediatorCode.CLICK_HELLO){
             ByeState state = new ByeState();
             state.setData(new ByeData(I_ByeModel.TXT_MSG, I_ByeModel.TXT_BTN));
+            return state;
+        }
+        if(view.equals(LandscapeHelloView.class) && code == HelloMediatorCode.LANDSCAPE || view.equals(PortraitHelloView.class) && code == HelloMediatorCode.PORTRAIT){
+            HelloState state = new HelloState();
+            state.setData(getHelloModel().getData());
+            state.setBtnClicked(getBtnClicked());
             return state;
         }
 

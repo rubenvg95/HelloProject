@@ -5,7 +5,9 @@ import es.ulpgc.eite.framework.android.AndroidScreenPresenter;
 import es.ulpgc.eite.framework.core.screen.I_ScreenObservable;
 import es.ulpgc.eite.framework.core.screen.I_ScreenState;
 import es.ulpgc.eite.framework.core.screen.I_ScreenView;
+import es.ulpgc.eite.hello.android.landscape.LandscapeHelloView;
 import es.ulpgc.eite.hello.android.mediator.HelloMediatorCode;
+import es.ulpgc.eite.hello.android.portrait.PortraitHelloView;
 import es.ulpgc.eite.hello.android.screen.bye.model.I_ByeModel;
 import es.ulpgc.eite.hello.android.screen.bye.state.ByeState;
 import es.ulpgc.eite.hello.android.screen.bye.view.I_ByeView;
@@ -99,7 +101,7 @@ public class ByePresenter extends AndroidScreenPresenter
         debug("setScreenState", "view", view.getSimpleName());
 
         if(state != null) {
-            if (view.equals(HelloView.class) && code == HelloMediatorCode.CLICK_HELLO) {
+            if ((view.equals(PortraitHelloView.class) && code == HelloMediatorCode.CLICK_HELLO)|| view.equals(LandscapeHelloView.class) && code == HelloMediatorCode.PORTRAIT) {
                 ByeState _state = (ByeState) state;
                 getByeModel().setData(_state.getData());
                 setBtnClicked(_state.getBtnClicked());
