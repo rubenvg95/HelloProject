@@ -15,7 +15,7 @@ import es.ulpgc.eite.hello.android.screen.hello.model.I_HelloModel;
 import es.ulpgc.eite.hello.android.screen.hello.state.HelloState;
 import es.ulpgc.eite.hello.android.screen.hello.view.I_HelloView;
 
-public class HelloPresenter extends AndroidScreenPresenter
+public abstract class HelloPresenter extends AndroidScreenPresenter
         implements I_HelloPresenter, I_ScreenObserver {
 
     private Boolean _btnClicked;
@@ -93,11 +93,13 @@ public class HelloPresenter extends AndroidScreenPresenter
         debug("pauseScreen");
     }
 
-    @Override
-    public void rotateScreen() {
-        debug("rotateScreen");
-    }
 
+    //Metodo usado para la rotación de la pantalla
+
+    public void changeRotation(int code){
+        debug("changeRotation", "code", code);
+        startNextScreenWithFinish(code, true); //Con true matamos la pantalla una vez y la dejamos
+    }
     @Override
     public void setScreenState(
             Class<? extends I_ScreenView> view, int code, I_ScreenState state) {
