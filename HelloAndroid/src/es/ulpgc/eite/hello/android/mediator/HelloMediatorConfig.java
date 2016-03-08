@@ -63,7 +63,7 @@ public class HelloMediatorConfig extends MediatorConfig{
         getTransitions().add(new MediatorTransition(LandscapeHelloView.class, ByeView.class, HelloMediatorCode.CLICK_HELLO));
 
         // No puedes pasar de HellowView a las otras, sino de LandscapeHelloView o de PortraitHelloView a las otras. Creo que tiene que ver
-        //con que la clase HelloView sea abstracta, no se pueden crear objetos de dicha clase. Preguntar!
+        //con que la clase HelloView sea abstracta, no se pueden crear objetos de dicha clase. Preguntar! --> Sí, era por eso
 
         //getTransitions().add(new MediatorTransition(HelloView.class, CounterView.class, HelloMediatorCode.CLICK_COUNTER));
 
