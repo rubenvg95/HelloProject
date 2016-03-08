@@ -18,7 +18,7 @@ import es.ulpgc.eite.hello.android.screen.hello.model.I_HelloModel;
 import es.ulpgc.eite.hello.android.screen.hello.state.HelloState;
 import es.ulpgc.eite.hello.android.screen.hello.view.I_HelloView;
 
-public abstract class HelloPresenter extends AndroidScreenPresenter
+public  abstract class HelloPresenter extends AndroidScreenPresenter //DUDA: Al quitar el abstract, no termino de ver el pq de ese error
         implements I_HelloPresenter, I_ScreenObserver {
 
     private Boolean _btnClicked;
@@ -58,7 +58,7 @@ public abstract class HelloPresenter extends AndroidScreenPresenter
         getHelloView().showMessage();
         startNextScreenWithObserver(this, HelloMediatorCode.CLICK_HELLO);
     }
-    //prueba
+
     @Override
     public void buttonClickedCounter() {
         set_btnClickedCounter(true);
@@ -107,6 +107,8 @@ public abstract class HelloPresenter extends AndroidScreenPresenter
         debug("changeRotation", "code", code);
         startNextScreenWithFinish(code, true); //Con true matamos la pantalla una vez y la dejamos
     }
+
+
     @Override
     public void setScreenState(
             Class<? extends I_ScreenView> view, int code, I_ScreenState state) {

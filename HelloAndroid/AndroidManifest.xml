@@ -27,8 +27,14 @@
         </activity>
 
         <activity
-            android:name=".screen.bye.view.ByeView"
+            android:name=".portrait.PortraitByeView"
             android:configChanges="orientation|keyboardHidden|screenSize">
+
+        </activity>
+
+        <activity
+                android:name=".landscape.LandscapeByeView"
+                android:configChanges="orientation|keyboardHidden|screenSize">
 
         </activity>
 

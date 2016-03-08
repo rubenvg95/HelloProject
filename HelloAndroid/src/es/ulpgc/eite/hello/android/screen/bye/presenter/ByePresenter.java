@@ -5,8 +5,10 @@ import es.ulpgc.eite.framework.android.AndroidScreenPresenter;
 import es.ulpgc.eite.framework.core.screen.I_ScreenObservable;
 import es.ulpgc.eite.framework.core.screen.I_ScreenState;
 import es.ulpgc.eite.framework.core.screen.I_ScreenView;
+import es.ulpgc.eite.hello.android.landscape.LandscapeByeView;
 import es.ulpgc.eite.hello.android.landscape.LandscapeHelloView;
 import es.ulpgc.eite.hello.android.mediator.HelloMediatorCode;
+import es.ulpgc.eite.hello.android.portrait.PortraitByeView;
 import es.ulpgc.eite.hello.android.portrait.PortraitHelloView;
 import es.ulpgc.eite.hello.android.screen.bye.model.I_ByeModel;
 import es.ulpgc.eite.hello.android.screen.bye.state.ByeState;
@@ -16,7 +18,7 @@ import es.ulpgc.eite.hello.android.screen.hello.model.I_HelloModel;
 import es.ulpgc.eite.hello.android.screen.hello.state.HelloState;
 import es.ulpgc.eite.hello.android.screen.hello.view.HelloView;
 
-public class ByePresenter extends AndroidScreenPresenter
+public abstract class ByePresenter extends AndroidScreenPresenter
         implements I_ByePresenter, I_ScreenObservable {
 
 
@@ -56,6 +58,11 @@ public class ByePresenter extends AndroidScreenPresenter
         getByeView().hideMessage();
         setBtnClicked(false);
 
+    }
+
+    public void changeRotation(int code){
+        debug("changeRotation", "code", code);
+        startNextScreenWithFinish(code, true); //Con true matamos la pantalla una vez y la dejamos
     }
 
     @Override
@@ -127,7 +134,9 @@ public class ByePresenter extends AndroidScreenPresenter
     @Override
     public I_ScreenState getNextState(Class<? extends I_ScreenView> view, int code) {
         return null;
-    }
+
+
+           }
 
     @Override
     public void updateObservableState(
